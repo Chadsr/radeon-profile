@@ -212,6 +212,12 @@ void radeon_profile::closeEvent(QCloseEvent *e) {
     QApplication::quit();
 }
 
+void radeon_profile::toggleUiFromTray() {
+  if (isHidden()) {
+    this->showNormal();
+  } else this->hide();
+}
+
 void radeon_profile::closeFromTray() {
     closeFromTrayMenu = true;
     this->close();

@@ -93,6 +93,11 @@ void radeon_profile::setupTrayIcon() {
     closeApp->setText(tr("Quit"));
     connect(closeApp,SIGNAL(triggered()),this,SLOT(closeFromTray()));
 
+    // show ui //
+    toggleUi = new QAction(trayMenu);
+    toggleUi ->setText(tr("Show/Hide"));
+    connect(toggleUi,SIGNAL(triggered()),this,SLOT(toggleUiFromTray()));
+
     // standard profiles
     changeProfile = new QAction(trayMenu);
     changeProfile->setText(tr("Change standard profile"));
@@ -132,6 +137,7 @@ void radeon_profile::setupTrayIcon() {
     // add stuff above to menu //
     trayMenu->addAction(refreshWhenHidden);
     trayMenu->addSeparator();
+    trayMenu->addAction(toggleUi);
     trayMenu->addAction(changeProfile);
     trayMenu->addMenu(dpmMenu);
     trayMenu->addSeparator();

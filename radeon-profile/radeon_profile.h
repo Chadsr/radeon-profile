@@ -68,7 +68,7 @@ public:
     QString appHomePath;
 
     QSystemTrayIcon *trayIcon;
-    QAction *closeApp, *dpmSetBattery, *dpmSetBalanced, *dpmSetPerformance,*changeProfile, *refreshWhenHidden;
+    QAction *toggleUi, *closeApp, *dpmSetBattery, *dpmSetBalanced, *dpmSetPerformance,*changeProfile, *refreshWhenHidden;
     QMenu *dpmMenu, *trayMenu, *optionsMenu, *forcePowerMenu, *fanProfilesMenu;
     QTimer *timer;
     static unsigned int minFanStepsSpeed;
@@ -97,6 +97,7 @@ private slots:
     void on_btn_forceLow_clicked();
     void gpuChanged();
     void closeEvent(QCloseEvent *);
+    void toggleUiFromTray();
     void closeFromTray();
     void on_spin_lineThick_valueChanged(int arg1);
     void on_spin_timerInterval_valueChanged(double arg1);
